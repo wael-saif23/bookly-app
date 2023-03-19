@@ -1,7 +1,11 @@
+import 'package:booklyapp/Features/home/presentation/views/home_view.dart';
+import 'package:booklyapp/Features/splash/presentation/views/widgets/text_animation.dart';
 import 'package:booklyapp/core/utilts/assets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/get_core.dart';
+
+import '../../../../../contants.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});
@@ -19,14 +23,12 @@ class _SplashViewBodyState extends State<SplashViewBody>
   void initState() {
     super.initState();
 
-    animationController =
-        AnimationController(vsync: this, duration: Duration(seconds: 1));
+    intSliderAnimation();
 
-    sliderAnimation = Tween(begin: Offset(0, 10), end: Offset.zero)
-        .animate(animationController);
-
-    animationController.forward();
+    navigatToHomeView();
   }
+
+  
 
   @override
   void dispose() {
@@ -45,22 +47,25 @@ class _SplashViewBodyState extends State<SplashViewBody>
           const SizedBox(
             height: 6,
           ),
-          AnimatedBuilder(
-              animation: sliderAnimation,
-              builder: (context, _) {
-                return SlideTransition(
-                  position: sliderAnimation,
-                  child: const Text(
-                    "read for free",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 16,
-                    ),
-                  ),
-                );
-              }),
+          TextAnimation(sliderAnimation: sliderAnimation),
         ],
       ),
     );
+  }
+
+  void intSliderAnimation() {
+    animationController =
+        AnimationController(vsync: this, duration: const Duration(seconds: 1));
+
+    sliderAnimation = Tween(begin: const Offset(0, 10), end: Offset.zero)
+        .animate(animationController);
+
+    animationController.forward();
+  }
+
+  void navigatToHomeView() {
+    Future.delayed(Duration(seconds: 2), () {
+      Get.to(HomeView(), transition: Transition.leftToRightWithFade,duration: kTranstionDuration);
+    });
   }
 }
