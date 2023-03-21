@@ -1,7 +1,6 @@
 import 'package:booklyapp/core/utilts/assets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
+
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class CustomAppBar extends StatelessWidget {
@@ -17,7 +16,7 @@ class CustomAppBar extends StatelessWidget {
          const Spacer(),
           IconButton(
             onPressed: () {},
-            icon: Icon(FontAwesomeIcons.magnifyingGlass,size: 24,),
+            icon:const Icon(FontAwesomeIcons.magnifyingGlass,size: 24,),
             
           ),
         ],
