@@ -1,4 +1,3 @@
-
 import 'package:booklyapp/Features/splash/presentation/views/splash_view.dart';
 import 'package:booklyapp/contants.dart';
 import 'package:booklyapp/core/utilts/go_router.dart';
@@ -15,15 +14,13 @@ class BooklyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  MaterialApp.router(
-      routerConfig: GoRouterAll.router,
+    return MaterialApp.router(
+      routerConfig: AppRouter.router,
       debugShowCheckedModeBanner: false,
-      theme: ThemeData.dark().copyWith(scaffoldBackgroundColor: kPremaryColor,
-      textTheme: GoogleFonts.montserratTextTheme(ThemeData.dark().textTheme),  
+      theme: ThemeData.dark().copyWith(
+        scaffoldBackgroundColor: kPremaryColor,
+        textTheme: GoogleFonts.montserratTextTheme(ThemeData.dark().textTheme),
       ),
-      
-      
     );
   }
 }
-

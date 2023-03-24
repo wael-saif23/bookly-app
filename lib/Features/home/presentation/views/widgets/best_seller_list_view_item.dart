@@ -1,5 +1,7 @@
 import 'package:booklyapp/Features/home/presentation/views/widgets/booky_rating.dart';
+import 'package:booklyapp/core/utilts/go_router.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../../contants.dart';
 import '../../../../../core/utilts/assets.dart';
@@ -10,70 +12,75 @@ class BestSellerListViewItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 120,
-      child: Row(
-        children: [
-          AspectRatio(
-            aspectRatio: 2.5 / 4,
-            child: Container(
-              decoration: BoxDecoration(
-                color: Colors.blue,
-                borderRadius: const BorderRadius.all(Radius.circular(12)),
-                border: Border.all(
-                  color: kPremaryColor,
-                ),
-                image: const DecorationImage(
-                  image: AssetImage(AssetsData.testImage),
-                  fit: BoxFit.fill,
-                ),
-              ),
-            ),
-            // ),
-          ),
-          const SizedBox(
-            width: 30,
-          ),
-          Expanded(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SizedBox(
-                  width: MediaQuery.of(context).size.width * .5,
-                  child: Text(
-                    "Harry Potter and the Goblet of Fire",
-                    style:
-                        Stlyes.textStyle20.copyWith(fontFamily: kGTSectraFine),
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
+    return GestureDetector(
+      onTap: () {
+        GoRouter.of(context).push(AppRouter.bookDetailsView);
+      },
+      child: SizedBox(
+        height: 120,
+        child: Row(
+          children: [
+            AspectRatio(
+              aspectRatio: 2.5 / 4,
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Colors.blue,
+                  borderRadius: const BorderRadius.all(Radius.circular(12)),
+                  border: Border.all(
+                    color: kPremaryColor,
+                  ),
+                  image: const DecorationImage(
+                    image: AssetImage(AssetsData.testImage),
+                    fit: BoxFit.fill,
                   ),
                 ),
-                const SizedBox(
-                  height: 3,
-                ),
-                const Text(
-                  "J.K. Rowling",
-                  style: Stlyes.textStyle14,
-                ),
-                const SizedBox(
-                  height: 3,
-                ),
-                Row(
-                  children: [
-                    Text(
-                      "19.99 €",
-                      style: Stlyes.textStyle20
-                          .copyWith(fontWeight: FontWeight.bold),
-                    ),
-                    const Spacer(),
-                    const BookyRating(),
-                  ],
-                ),
-              ],
+              ),
+              // ),
             ),
-          )
-        ],
+            const SizedBox(
+              width: 30,
+            ),
+            Expanded(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width * .5,
+                    child: Text(
+                      "Harry Potter and the Goblet of Fire",
+                      style: Stlyes.textStyle20
+                          .copyWith(fontFamily: kGTSectraFine),
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 3,
+                  ),
+                  const Text(
+                    "J.K. Rowling",
+                    style: Stlyes.textStyle14,
+                  ),
+                  const SizedBox(
+                    height: 3,
+                  ),
+                  Row(
+                    children: [
+                      Text(
+                        "19.99 €",
+                        style: Stlyes.textStyle20
+                            .copyWith(fontWeight: FontWeight.bold),
+                      ),
+                      const Spacer(),
+                      const BookyRating(),
+                    ],
+                  ),
+                ],
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

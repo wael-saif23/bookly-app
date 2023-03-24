@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import '../../../../../contants.dart';
 import '../../../../../core/utilts/assets.dart';
 
-class FeaturelistviewItem extends StatelessWidget {
-  const FeaturelistviewItem({super.key});
+class FeatureBookItem extends StatelessWidget {
+  const FeatureBookItem({super.key});
 
   @override
   Widget build(BuildContext context) {
