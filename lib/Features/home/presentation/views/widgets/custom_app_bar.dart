@@ -26,7 +26,7 @@ class CustomAppBar extends StatelessWidget {
             },
             icon: const Icon(
               FontAwesomeIcons.magnifyingGlass,
-              size: 24,
+              size: 22,
             ),
           ),
         ],
